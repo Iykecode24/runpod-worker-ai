@@ -38,7 +38,7 @@ def validate_input(job_input: dict) -> tuple[bool, str]:
             return False, f'Missing required field: {field}'
     return True, ''
 
-def handler(job: dict) -> dict:
+    logger.info(f'[{job_id}] Project: {job_input.get("projectId")} | Title: {job_input.get("title", "Untitled")}')
     '''
     Main Runpod job handler.
     Receives movie production job and returns completed video URLs.
