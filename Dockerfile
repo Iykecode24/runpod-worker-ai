@@ -1,5 +1,5 @@
-﻿# ============================================================
-# Iyke Movie Studio — Runpod GPU Worker
+# ============================================================
+# Iyke Movie Studio - Runpod GPU Worker
 # Dockerfile for AI Video Production
 # ============================================================
 FROM runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
@@ -36,9 +36,7 @@ ENV OUTPUT_DIR=/app/output
 ENV MODELS_DIR=/app/models
 ENV LOG_LEVEL=INFO
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+# Health check handled internally by Runpod Serverless supervisor
 
 # Runpod entrypoint
 CMD ["python", "-u", "handler.py"]
